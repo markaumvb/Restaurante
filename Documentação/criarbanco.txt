@@ -1,0 +1,168 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema sgr
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema sgr
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `sgr` DEFAULT CHARACTER SET utf8 ;
+USE `sgr` ;
+
+-- -----------------------------------------------------
+-- Table `sgr`.`cardapios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sgr`.`cardapios` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `codigo` VARCHAR(5) NOT NULL,
+  `descricao` VARCHAR(60) NOT NULL,
+  `created` DATETIME NOT NULL,
+  `modified` DATETIME NOT NULL,
+  `preco` DECIMAL(10,2) NOT NULL,
+  `status` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `codigo` (`codigo` ASC))
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8
+ROW_FORMAT = COMPACT;
+
+
+-- -----------------------------------------------------
+-- Table `sgr`.`mesas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sgr`.`mesas` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `numero_mesa` INT(11) NOT NULL,
+  `cadeiras` INT(11) NOT NULL,
+  `status` VARCHAR(15) NOT NULL DEFAULT 'Livre',
+  `created` DATETIME NOT NULL,
+  `modified` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `numero_mesa` (`numero_mesa` ASC))
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `sgr`.`clientes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sgr`.`clientes` (
+  `id` INT NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `cpf` VARCHAR(15) NOT NULL,
+  `telefone_residencial` VARCHAR(20) NULL,
+  `telefone_celular` VARCHAR(20) NULL,
+  `dt_nascimento` DATE NULL,
+  `status` VARCHAR(15) NULL,
+  `created` DATETIME NULL,
+  `modified` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `cpf_UNIQUE` (`cpf` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `sgr`.`reservas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sgr`.`reservas` (
+  `id` INT NOT NULL,
+  `cliente_id` INT NOT NULL,
+  `lugares` INT NOT NULL,
+  `datahora` DATETIME NOT NULL,
+  `status` VARCHAR(20) NULL,
+  `created` DATETIME NULL,
+  `modified` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `sgr`.`funcionarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sgr`.`funcionarios` (
+  `id` INT NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `cpf` VARCHAR(15) NOT NULL,
+  `telefone_residencial` VARCHAR(20) NULL,
+  `telefone_celular` VARCHAR(20) NULL,
+  `dt_nascimento` DATE NULL,
+  `status` VARCHAR(15) NULL,
+  `created` DATETIME NULL,
+  `modified` DATETIME NULL,
+  `dt_admissao` DATE NOT NULL,
+  `dt_demissao` DATE NULL,
+  `pis` VARCHAR(20) NULL,
+  `salario` DECIMAL(10,2) NULL,
+  `comissao` DECIMAL(10,2) NULL,
+  `foto` BLOB NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `cpf_UNIQUE` (`cpf` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `sgr`.`agregacoes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sgr`.`agregacoes` (
+  `id` INT NOT NULL,
+  `mesa_id` INT NULL,
+  `mesa_id_a` INT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `sgr`.`pedidos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sgr`.`pedidos` (
+  `id` INT NOT NULL,
+  `mesa_id` INT NOT NULL,
+  `datahora` DATETIME NOT NULL,
+  `valortotal` FLOAT(10,2) NOT NULL,
+  `entrega` VARCHAR(20) NOT NULL DEFAULT 'Não',
+  `status` VARCHAR(20) NOT NULL DEFAULT 'Pendente',
+  `created` DATETIME NULL,
+  `modified` DATETIME NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `sgr`.`items_pedidos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sgr`.`items_pedidos` (
+  `id` INT NOT NULL,
+  `pedido_id` INT NOT NULL,
+  `cardapio_id` INT NOT NULL,
+  `obs` VARCHAR(200) NULL,
+  `created` DATETIME NULL,
+  `modified` DATETIME NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `sgr`.`contas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sgr`.`contas` (
+  `id` INT NOT NULL,
+  `mesa_id` INT NOT NULL,
+  `valor` FLOAT(10,2) NOT NULL DEFAULT 0,
+  `status` VARCHAR(20) NOT NULL DEFAULT 'Pendente',
+  `created` DATETIME NULL,
+  `modified` DATETIME NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
