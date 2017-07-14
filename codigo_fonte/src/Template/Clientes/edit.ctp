@@ -2,20 +2,18 @@
     <ul class="nav nav-pills nav-stacked">
         <li class="active"><a><?= __('Actions') ?></a></li>
         <li><?= $this->Form->postLink(
-                __('Delete'),
+                __('Excluir'),
                 ['action' => 'delete', $cliente->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $cliente->id)]
+                ['confirm' => __('Deseja excluir o cliente {0}?', $cliente->nome)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List {0}', 'Clientes'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List {0}', 'Reservas'), ['controller' => 'Reservas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New {0}', 'Reserva'), ['controller' => 'Reservas', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Voltar'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="clientes form col-md-10 columns content">
     <?= $this->Form->create($cliente) ?>
     <fieldset>
-        <legend><?= 'Edit Cliente' ?></legend>
+        <legend><?= 'Editar Cliente' ?></legend>
         <?php
             echo $this->Form->input('nome');
             echo $this->Form->input('cpf');
@@ -25,6 +23,6 @@
             echo $this->Form->input('status');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Salvar')) ?>
     <?= $this->Form->end() ?>
 </div>

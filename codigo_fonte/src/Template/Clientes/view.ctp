@@ -1,23 +1,16 @@
 <nav class="col-lg-2 col-md-3">
     <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href=""><?= __('Actions') ?></a></li>
-        <li><?= $this->Html->link(__('Edit {0}', ['Cliente']), ['action' => 'edit', $cliente->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete {0}', ['Cliente']), ['action' => 'delete', $cliente->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cliente->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List {0}', ['Clientes']), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New {0}', ['Cliente']), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List {0}', ['Reservas']), ['controller' => 'Reservas', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New {0}', ['Reserva']), ['controller' => 'Reservas', 'action' => 'add']) ?> </li>
+        <li class="active"><a href=""><?= __('Menu') ?></a></li>
+
+        <li><?= $this->Html->link(__('Voltar'), ['action' => 'index']) ?> </li>
+
     </ul>
 </nav>
 <div class="clientes view col-lg-10 col-md-9">
-    <h3><?= h($cliente->id) ?></h3>
+    <h3><?= h($cliente->nome) ?></h3>
     <table class="table table-striped table-hover">
         <tr>
-            <th>Nome</th>
-            <td><?= h($cliente->nome) ?></td>
-        </tr>
-        <tr>
-            <th>Cpf</th>
+            <th>CPF</th>
             <td><?= h($cliente->cpf) ?></td>
         </tr>
         <tr>
@@ -33,51 +26,39 @@
             <td><?= h($cliente->status) ?></td>
         </tr>
         <tr>
-            <th>'Id</th>
-            <td><?= $this->Number->format($cliente->id) ?></td>
-        </tr>
-        <tr>
             <th>Dt Nascimento</th>
             <td><?= h($cliente->dt_nascimento) ?></tr>
         </tr>
         <tr>
-            <th>Created</th>
+            <th>Criado em:</th>
             <td><?= h($cliente->created) ?></tr>
         </tr>
         <tr>
-            <th>Modified</th>
+            <th>Modificado em:</th>
             <td><?= h($cliente->modified) ?></tr>
         </tr>
     </table>
     <div class="related">
-        <h4><?= __('Related {0}', ['Reservas']) ?></h4>
+        <h4><?= __('Reservas feitas pelo cliente') ?></h4>
         <?php if (!empty($cliente->reservas)): ?>
         <table class="table table-striped table-hover">
             <tr>
-                <th>Id</th>
-                <th>Cliente Id</th>
                 <th>Lugares</th>
-                <th>Datahora</th>
+                <th>Data/hora</th>
                 <th>Status</th>
-                <th>Created</th>
-                <th>Modified</th>
-                <th class="actions"><?= __('Actions') ?></th>
+                <th class="actions"><?= __('Ações') ?></th>
             </tr>
             <?php foreach ($cliente->reservas as $reservas): ?>
             <tr>
-                <td><?= h($reservas->id) ?></td>
-                <td><?= h($reservas->cliente_id) ?></td>
                 <td><?= h($reservas->lugares) ?></td>
                 <td><?= h($reservas->datahora) ?></td>
                 <td><?= h($reservas->status) ?></td>
-                <td><?= h($reservas->created) ?></td>
-                <td><?= h($reservas->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Reservas', 'action' => 'view', $reservas->id]) ?>
+                    <?= $this->Html->link(__('Visualizar'), ['controller' => 'Reservas', 'action' => 'view', $reservas->id]) ?>
 
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Reservas', 'action' => 'edit', $reservas->id]) ?>
+                    <?= $this->Html->link(__('Editar'), ['controller' => 'Reservas', 'action' => 'edit', $reservas->id]) ?>
 
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Reservas', 'action' => 'delete', $reservas->id], ['confirm' => __('Are you sure you want to delete # {0}?', $reservas->id)]) ?>
+                    <?= $this->Form->postLink(__('Excluir'), ['controller' => 'Reservas', 'action' => 'delete', $reservas->id], ['confirm' => __('Deseja excluir a reserva? ', $reservas->id)]) ?>
 
                 </td>
             </tr>
