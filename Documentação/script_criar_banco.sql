@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Jul-2017 às 07:07
+-- Generation Time: 15-Jul-2017 às 00:46
 -- Versão do servidor: 10.1.21-MariaDB
 -- PHP Version: 7.0.15
 
@@ -37,7 +37,7 @@ CREATE TABLE `agregacoes` (
 --
 
 INSERT INTO `agregacoes` (`id`, `mesa_id`, `mesa_id_a`) VALUES
-(0, 1, 2);
+(1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,9 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `nome`, `cpf`, `telefone_residencial`, `telefone_celular`, `dt_nascimento`, `status`, `created`, `modified`) VALUES
-(0, 'Marcus Vinicius Bertoncello', '05519597979', '', '43996145371', NULL, 'Ativo', '2017-07-14 05:01:28', '2017-07-14 05:01:28');
+(1, 'Marcus Vinicius Bertoncello', '05519597979', '', '43996145371', NULL, 'Ativo', '2017-07-14 05:01:28', '2017-07-14 05:01:28'),
+(2, 'José Antonio dos Reir', '01234568', '', '', NULL, 'Ativo', '2017-07-14 22:41:51', '2017-07-14 22:41:51'),
+(3, 'Maria Aparecida dos Santos', '123456', '', '', NULL, 'Ativo', '2017-07-14 22:42:19', '2017-07-14 22:42:19');
 
 -- --------------------------------------------------------
 
@@ -187,6 +189,13 @@ CREATE TABLE `mesas_reservas` (
   `reserva_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `mesas_reservas`
+--
+
+INSERT INTO `mesas_reservas` (`id`, `mesa_id`, `reserva_id`) VALUES
+(1, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -248,6 +257,13 @@ CREATE TABLE `reservas` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `reservas`
+--
+
+INSERT INTO `reservas` (`id`, `cliente_id`, `lugares`, `datahora`, `status`, `created`, `modified`) VALUES
+(1, 3, 10, '2022-01-01 00:00:00', 'Ativa', '2017-07-14 22:44:31', '2017-07-14 22:44:31');
 
 --
 -- Indexes for dumped tables
@@ -336,15 +352,65 @@ ALTER TABLE `reservas`
 --
 
 --
+-- AUTO_INCREMENT for table `agregacoes`
+--
+ALTER TABLE `agregacoes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `cardapios`
 --
 ALTER TABLE `cardapios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
+-- AUTO_INCREMENT for table `cardapios_pedidos`
+--
+ALTER TABLE `cardapios_pedidos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `contas`
+--
+ALTER TABLE `contas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `mesas`
 --
 ALTER TABLE `mesas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `mesas_reservas`
+--
+ALTER TABLE `mesas_reservas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pedidos_cardapios`
+--
+ALTER TABLE `pedidos_cardapios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `quotas_contas`
+--
+ALTER TABLE `quotas_contas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `reservas`
+--
+ALTER TABLE `reservas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
