@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ItensCardapiosTable;
+use App\Model\Table\MesasReservasTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ItensCardapiosTable Test Case
+ * App\Model\Table\MesasReservasTable Test Case
  */
-class ItensCardapiosTableTest extends TestCase
+class MesasReservasTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\ItensCardapiosTable
+     * @var \App\Model\Table\MesasReservasTable
      */
-    public $ItensCardapios;
+    public $MesasReservas;
 
     /**
      * Fixtures
@@ -24,7 +24,10 @@ class ItensCardapiosTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.itens_cardapios'
+        'app.mesas_reservas',
+        'app.mesas',
+        'app.reservas',
+        'app.clientes'
     ];
 
     /**
@@ -35,8 +38,8 @@ class ItensCardapiosTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('ItensCardapios') ? [] : ['className' => ItensCardapiosTable::class];
-        $this->ItensCardapios = TableRegistry::get('ItensCardapios', $config);
+        $config = TableRegistry::exists('MesasReservas') ? [] : ['className' => MesasReservasTable::class];
+        $this->MesasReservas = TableRegistry::get('MesasReservas', $config);
     }
 
     /**
@@ -46,7 +49,7 @@ class ItensCardapiosTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->ItensCardapios);
+        unset($this->MesasReservas);
 
         parent::tearDown();
     }

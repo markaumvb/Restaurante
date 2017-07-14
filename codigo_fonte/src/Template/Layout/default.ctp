@@ -26,6 +26,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
+    <?php
+     //** Usar Javascript **//
+      echo $this->Html->script('jquery-1.7');
+      echo $this->Html->script('jquery-mask');
+    ?>
+
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
 
@@ -53,5 +59,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
     <footer>
     </footer>
+
+    <?php echo $this->Js->writeBuffer(); // note: write cached scripts ?>
 </body>
 </html>

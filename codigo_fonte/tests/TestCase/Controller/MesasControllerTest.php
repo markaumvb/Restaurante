@@ -16,7 +16,16 @@ class MesasControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.mesas'
+        'app.mesas',
+        'app.agregacoes',
+        'app.contas',
+        'app.pedidos',
+        'app.items_pedidos',
+        'app.cardapios',
+        'app.pedidos_cardapios',
+        'app.reservas',
+        'app.clientes',
+        'app.mesas_reservas'
     ];
 
     /**

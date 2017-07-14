@@ -36,7 +36,7 @@ class CardapiosController extends AppController
     public function view($id = null)
     {
         $cardapio = $this->Cardapios->get($id, [
-            'contain' => []
+            'contain' => ['Pedidos']
         ]);
 
         $this->set('cardapio', $cardapio);
@@ -60,7 +60,8 @@ class CardapiosController extends AppController
             }
             $this->Flash->error(__('The cardapio could not be saved. Please, try again.'));
         }
-        $this->set(compact('cardapio'));
+        $pedidos = $this->Cardapios->Pedidos->find('list', ['limit' => 200]);
+        $this->set(compact('cardapio', 'pedidos'));
         $this->set('_serialize', ['cardapio']);
     }
 
@@ -74,7 +75,7 @@ class CardapiosController extends AppController
     public function edit($id = null)
     {
         $cardapio = $this->Cardapios->get($id, [
-            'contain' => []
+            'contain' => ['Pedidos']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $cardapio = $this->Cardapios->patchEntity($cardapio, $this->request->getData());
@@ -85,7 +86,8 @@ class CardapiosController extends AppController
             }
             $this->Flash->error(__('The cardapio could not be saved. Please, try again.'));
         }
-        $this->set(compact('cardapio'));
+        $pedidos = $this->Cardapios->Pedidos->find('list', ['limit' => 200]);
+        $this->set(compact('cardapio', 'pedidos'));
         $this->set('_serialize', ['cardapio']);
     }
 

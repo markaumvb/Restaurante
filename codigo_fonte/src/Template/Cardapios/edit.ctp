@@ -1,33 +1,27 @@
-<?php
-/**
-  * @var \App\View\AppView $this
-  */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
+<nav class="col-md-2 columns" id="actions-sidebar">
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a><?= __('Menu') ?></a></li>
         <li><?= $this->Form->postLink(
-                __('Delete'),
+                __('Excluir'),
                 ['action' => 'delete', $cardapio->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $cardapio->id)]
+                ['confirm' => __('Você deseja excluir o item atual?', $cardapio->id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Cardapios'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Voltar'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="cardapios form large-9 medium-8 columns content">
+<div class="cardapios form col-md-10 columns content">
     <?= $this->Form->create($cardapio) ?>
     <fieldset>
-        <legend><?= __('Edit Cardapio') ?></legend>
+        <legend><?= 'Editar' ?></legend>
         <?php
-            echo $this->Form->control('codigo');
-            echo $this->Form->control('descricao');
+            echo $this->Form->input('codigo');
+            echo $this->Form->input('descricao');
             echo $this->Form->input('preco');
-            $arrStatus=array('Ativo'=>"Ativo",'Desativado'=>"Desativado");
-            echo $this->Form->input('status', array('options'=>$arrStatus, 'label'=>false,
-                                  'selected'=>'Your Value')); 
+            echo $this->Form->input('status');
+
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Salvar')) ?>
     <?= $this->Form->end() ?>
 </div>

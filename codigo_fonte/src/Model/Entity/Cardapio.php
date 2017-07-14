@@ -13,6 +13,8 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  * @property float $preco
  * @property string $status
+ *
+ * @property \App\Model\Entity\Pedido[] $pedidos
  */
 class Cardapio extends Entity
 {

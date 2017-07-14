@@ -9,6 +9,11 @@ use Cake\Validation\Validator;
 /**
  * Mesas Model
  *
+ * @property \App\Model\Table\AgregacoesTable|\Cake\ORM\Association\HasMany $Agregacoes
+ * @property \App\Model\Table\ContasTable|\Cake\ORM\Association\HasMany $Contas
+ * @property \App\Model\Table\PedidosTable|\Cake\ORM\Association\HasMany $Pedidos
+ * @property \App\Model\Table\ReservasTable|\Cake\ORM\Association\BelongsToMany $Reservas
+ *
  * @method \App\Model\Entity\Mesa get($primaryKey, $options = [])
  * @method \App\Model\Entity\Mesa newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Mesa[] newEntities(array $data, array $options = [])
@@ -37,6 +42,21 @@ class MesasTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->hasMany('Agregacoes', [
+            'foreignKey' => 'mesa_id'
+        ]);
+        $this->hasMany('Contas', [
+            'foreignKey' => 'mesa_id'
+        ]);
+        $this->hasMany('Pedidos', [
+            'foreignKey' => 'mesa_id'
+        ]);
+        $this->belongsToMany('Reservas', [
+            'foreignKey' => 'mesa_id',
+            'targetForeignKey' => 'reserva_id',
+            'joinTable' => 'mesas_reservas'
+        ]);
     }
 
     /**

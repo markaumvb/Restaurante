@@ -37,12 +37,17 @@ class AppController extends Controller
      *
      * @return void
      */
+    
+
+
     public function initialize()
     {
         parent::initialize();
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->viewBuilder()->theme('TwitterBootstrap');
+        $this->set('project_name', 'SGR');
 
         /*
          * Enable the following components for recommended CakePHP security settings.

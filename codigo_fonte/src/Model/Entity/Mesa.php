@@ -12,6 +12,11 @@ use Cake\ORM\Entity;
  * @property string $status
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \App\Model\Entity\Agregaco[] $agregacoes
+ * @property \App\Model\Entity\Conta[] $contas
+ * @property \App\Model\Entity\Pedido[] $pedidos
+ * @property \App\Model\Entity\Reserva[] $reservas
  */
 class Mesa extends Entity
 {

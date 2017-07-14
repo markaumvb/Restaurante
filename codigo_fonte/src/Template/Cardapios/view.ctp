@@ -1,48 +1,31 @@
-<?php
-/**
-  * @var \App\View\AppView $this
-  * @var \App\Model\Entity\Cardapio $cardapio
-  */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Cardapio'), ['action' => 'edit', $cardapio->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Cardapio'), ['action' => 'delete', $cardapio->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cardapio->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Cardapios'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Cardapio'), ['action' => 'add']) ?> </li>
+<nav class="col-lg-2 col-md-3">
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href=""><?= __('Menu') ?></a></li>
+        <li><?= $this->Html->link(__('Voltar'), ['action' => 'index']) ?> </li>
     </ul>
 </nav>
-<div class="cardapios view large-9 medium-8 columns content">
-    <h3><?= h($cardapio->id) ?></h3>
-    <table class="vertical-table">
+<div class="cardapios view col-lg-10 col-md-9">
+    <h3><?= h($cardapio->codigo) ?></h3>
+    <table class="table table-striped table-hover">
         <tr>
-            <th scope="row"><?= __('Codigo') ?></th>
-            <td><?= h($cardapio->codigo) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Descricao') ?></th>
+            <th>Descrição</th>
             <td><?= h($cardapio->descricao) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Status') ?></th>
+            <th>Status</th>
             <td><?= h($cardapio->status) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($cardapio->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Preco') ?></th>
+            <th>Preço</th>
             <td><?= $this->Number->format($cardapio->preco) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($cardapio->created) ?></td>
+            <th>Criado em</th>
+            <td><?= h($cardapio->created) ?></tr>
         </tr>
         <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($cardapio->modified) ?></td>
+            <th>Modificado em</th>
+            <td><?= h($cardapio->modified) ?></tr>
         </tr>
     </table>
 </div>

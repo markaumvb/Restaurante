@@ -36,7 +36,7 @@ class MesasController extends AppController
     public function view($id = null)
     {
         $mesa = $this->Mesas->get($id, [
-            'contain' => []
+            'contain' => ['Reservas', 'Agregacoes', 'Contas', 'Pedidos']
         ]);
 
         $this->set('mesa', $mesa);
@@ -60,7 +60,8 @@ class MesasController extends AppController
             }
             $this->Flash->error(__('The mesa could not be saved. Please, try again.'));
         }
-        $this->set(compact('mesa'));
+        $reservas = $this->Mesas->Reservas->find('list', ['limit' => 200]);
+        $this->set(compact('mesa', 'reservas'));
         $this->set('_serialize', ['mesa']);
     }
 
@@ -74,7 +75,7 @@ class MesasController extends AppController
     public function edit($id = null)
     {
         $mesa = $this->Mesas->get($id, [
-            'contain' => []
+            'contain' => ['Reservas']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $mesa = $this->Mesas->patchEntity($mesa, $this->request->getData());
@@ -85,7 +86,8 @@ class MesasController extends AppController
             }
             $this->Flash->error(__('The mesa could not be saved. Please, try again.'));
         }
-        $this->set(compact('mesa'));
+        $reservas = $this->Mesas->Reservas->find('list', ['limit' => 200]);
+        $this->set(compact('mesa', 'reservas'));
         $this->set('_serialize', ['mesa']);
     }
 

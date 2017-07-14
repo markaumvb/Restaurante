@@ -79,6 +79,10 @@ try {
     exit($e->getMessage() . "\n");
 }
 
+
+//Usar o Bootstrap
+
+Plugin::load('TwitterBootstrap');
 /*
  * Load an environment local configuration file.
  * You can use a file like app_local.php to provide local overrides to your
@@ -220,3 +224,5 @@ Type::build('timestamp')
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
+
+

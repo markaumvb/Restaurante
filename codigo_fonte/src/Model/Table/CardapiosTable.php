@@ -9,6 +9,9 @@ use Cake\Validation\Validator;
 /**
  * Cardapios Model
  *
+ * @property \App\Model\Table\PedidosTable|\Cake\ORM\Association\BelongsToMany $Pedidos
+ * @property \App\Model\Table\PedidosTable|\Cake\ORM\Association\BelongsToMany $Pedidos
+ *
  * @method \App\Model\Entity\Cardapio get($primaryKey, $options = [])
  * @method \App\Model\Entity\Cardapio newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Cardapio[] newEntities(array $data, array $options = [])
@@ -37,6 +40,17 @@ class CardapiosTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsToMany('Pedidos', [
+            'foreignKey' => 'cardapio_id',
+            'targetForeignKey' => 'pedido_id',
+            'joinTable' => 'cardapios_pedidos'
+        ]);
+        $this->belongsToMany('Pedidos', [
+            'foreignKey' => 'cardapio_id',
+            'targetForeignKey' => 'pedido_id',
+            'joinTable' => 'pedidos_cardapios'
+        ]);
     }
 
     /**

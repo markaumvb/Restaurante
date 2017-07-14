@@ -17,6 +17,8 @@ USE `sgr` ;
 -- -----------------------------------------------------
 -- Table `sgr`.`cardapios`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`cardapios` ;
+
 CREATE TABLE IF NOT EXISTS `sgr`.`cardapios` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `codigo` VARCHAR(5) NOT NULL,
@@ -36,6 +38,8 @@ ROW_FORMAT = COMPACT;
 -- -----------------------------------------------------
 -- Table `sgr`.`mesas`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`mesas` ;
+
 CREATE TABLE IF NOT EXISTS `sgr`.`mesas` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `numero_mesa` INT(11) NOT NULL,
@@ -53,6 +57,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `sgr`.`clientes`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`clientes` ;
+
 CREATE TABLE IF NOT EXISTS `sgr`.`clientes` (
   `id` INT NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
@@ -71,6 +77,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `sgr`.`reservas`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`reservas` ;
+
 CREATE TABLE IF NOT EXISTS `sgr`.`reservas` (
   `id` INT NOT NULL,
   `cliente_id` INT NOT NULL,
@@ -87,6 +95,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `sgr`.`funcionarios`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`funcionarios` ;
+
 CREATE TABLE IF NOT EXISTS `sgr`.`funcionarios` (
   `id` INT NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
@@ -103,14 +113,19 @@ CREATE TABLE IF NOT EXISTS `sgr`.`funcionarios` (
   `salario` DECIMAL(10,2) NULL,
   `comissao` DECIMAL(10,2) NULL,
   `foto` BLOB NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `cpf_UNIQUE` (`cpf` ASC))
+  UNIQUE INDEX `cpf_UNIQUE` (`cpf` ASC),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `sgr`.`agregacoes`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`agregacoes` ;
+
 CREATE TABLE IF NOT EXISTS `sgr`.`agregacoes` (
   `id` INT NOT NULL,
   `mesa_id` INT NULL,
@@ -122,6 +137,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `sgr`.`pedidos`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`pedidos` ;
+
 CREATE TABLE IF NOT EXISTS `sgr`.`pedidos` (
   `id` INT NOT NULL,
   `mesa_id` INT NOT NULL,
@@ -136,9 +153,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sgr`.`items_pedidos`
+-- Table `sgr`.`pedidos_cardapios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sgr`.`items_pedidos` (
+DROP TABLE IF EXISTS `sgr`.`pedidos_cardapios` ;
+
+CREATE TABLE IF NOT EXISTS `sgr`.`pedidos_cardapios` (
   `id` INT NOT NULL,
   `pedido_id` INT NOT NULL,
   `cardapio_id` INT NOT NULL,
@@ -152,6 +171,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `sgr`.`contas`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`contas` ;
+
 CREATE TABLE IF NOT EXISTS `sgr`.`contas` (
   `id` INT NOT NULL,
   `mesa_id` INT NOT NULL,
@@ -159,6 +180,19 @@ CREATE TABLE IF NOT EXISTS `sgr`.`contas` (
   `status` VARCHAR(20) NOT NULL DEFAULT 'Pendente',
   `created` DATETIME NULL,
   `modified` DATETIME NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `sgr`.`mesas_reservas`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`mesas_reservas` ;
+
+CREATE TABLE IF NOT EXISTS `sgr`.`mesas_reservas` (
+  `id` INT NOT NULL,
+  `mesa_id` INT NOT NULL,
+  `reserva_id` INT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
