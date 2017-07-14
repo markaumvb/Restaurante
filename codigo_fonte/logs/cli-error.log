@@ -1,0 +1,149 @@
+2017-07-07 02:00:54 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'sgr.item_cardapios' doesn't exist in C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 131
+Stack Trace:
+#0 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'item_cardapios', Array, Object(Cake\Database\Schema\TableSchema))
+#1 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('item_cardapios', Array)
+#2 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\ORM\Table.php(531): Cake\Database\Schema\CachedCollection->describe('item_cardapios')
+#3 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\ORM\Table.php(652): Cake\ORM\Table->getSchema()
+#4 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(217): Cake\ORM\Table->getPrimaryKey()
+#5 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(127): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(110): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'item_cardapios', 'ItemCardapios')
+#7 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(97): Bake\Shell\Task\ModelTask->bake('ItemCardapios')
+#8 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\BakeShell.php(257): Bake\Shell\Task\ModelTask->main('ItemCardapios')
+#9 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('ItemCardapios', 0)
+#10 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\BakeShell.php(258): Cake\Collection\Collection->each(Object(Closure))
+#11 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\Shell.php(458): Bake\Shell\BakeShell->all('item_cardapios')
+#12 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Cake\Console\Shell->runCommand(Array, true, Array)
+#13 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#14 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#15 C:\xampp\htdocs\restaurante\codigo_fonte\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#16 {main}
+
+
+2017-07-07 20:07:58 Error: [InvalidArgumentException] The migration class name "inicial" is invalid. Please use CamelCase format. in C:\xampp\htdocs\restaurante\codigo_fonte\vendor\robmorgan\phinx\src\Phinx\Console\Command\Create.php on line 112
+Stack Trace:
+#0 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\migrations\src\ConfigurationTrait.php(165): Phinx\Console\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#1 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\symfony\console\Command\Command.php(264): Migrations\Command\Create->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\symfony\console\Application.php(869): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\symfony\console\Application.php(223): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\symfony\console\Application.php(130): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\Shell.php(472): Migrations\Shell\MigrationsShell->main('migrations', 'create', 'inicial')
+#7 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\migrations\src\Shell\MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#8 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#9 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#10 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#11 C:\xampp\htdocs\restaurante\codigo_fonte\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#12 {main}
+
+
+2017-07-14 04:19:54 Error: [PDOException] SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+ in C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Driver\PDODriverTrait.php on line 47
+Stack Trace:
+#0 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Driver\PDODriverTrait.php(47): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(104): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Dialect\MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(42): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Connection.php(365): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Connection.php(384): Cake\Database\Connection->getSchemaCollection()
+#8 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(1014): Cake\Database\Connection->schemaCollection()
+#9 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(966): Bake\Shell\Task\ModelTask->_getAllTables()
+#10 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(981): Bake\Shell\Task\ModelTask->listAll()
+#11 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\BakeShell.php(237): Bake\Shell\Task\ModelTask->listUnskipped()
+#12 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\Shell.php(458): Bake\Shell\BakeShell->all()
+#13 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Cake\Console\Shell->runCommand(Array, true, Array)
+#14 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#15 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#16 C:\xampp\htdocs\restaurante\codigo_fonte\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#17 {main}
+
+
+2017-07-14 04:20:06 Error: [PDOException] SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+ in C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Driver\PDODriverTrait.php on line 47
+Stack Trace:
+#0 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Driver\PDODriverTrait.php(47): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(104): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Dialect\MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(42): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Connection.php(365): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Connection.php(384): Cake\Database\Connection->getSchemaCollection()
+#8 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(1014): Cake\Database\Connection->schemaCollection()
+#9 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(966): Bake\Shell\Task\ModelTask->_getAllTables()
+#10 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(981): Bake\Shell\Task\ModelTask->listAll()
+#11 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\BakeShell.php(237): Bake\Shell\Task\ModelTask->listUnskipped()
+#12 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\Shell.php(458): Bake\Shell\BakeShell->all()
+#13 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Cake\Console\Shell->runCommand(Array, true, Array)
+#14 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#15 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#16 C:\xampp\htdocs\restaurante\codigo_fonte\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#17 {main}
+
+
+2017-07-14 04:20:13 Error: [PDOException] SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+ in C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Driver\PDODriverTrait.php on line 47
+Stack Trace:
+#0 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Driver\PDODriverTrait.php(47): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(104): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Dialect\MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(42): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Connection.php(365): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Connection.php(384): Cake\Database\Connection->getSchemaCollection()
+#8 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(1014): Cake\Database\Connection->schemaCollection()
+#9 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(966): Bake\Shell\Task\ModelTask->_getAllTables()
+#10 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(981): Bake\Shell\Task\ModelTask->listAll()
+#11 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\BakeShell.php(237): Bake\Shell\Task\ModelTask->listUnskipped()
+#12 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\Shell.php(458): Bake\Shell\BakeShell->all()
+#13 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Cake\Console\Shell->runCommand(Array, true, Array)
+#14 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#15 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#16 C:\xampp\htdocs\restaurante\codigo_fonte\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#17 {main}
+
+
+2017-07-14 04:25:20 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'sgr.contas__theme' doesn't exist in C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 131
+Stack Trace:
+#0 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'contas__theme', Array, Object(Cake\Database\Schema\TableSchema))
+#1 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('contas__theme', Array)
+#2 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\ORM\Table.php(531): Cake\Database\Schema\CachedCollection->describe('contas__theme')
+#3 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\ORM\Table.php(652): Cake\ORM\Table->getSchema()
+#4 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(217): Cake\ORM\Table->getPrimaryKey()
+#5 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(127): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(110): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'contas__theme', 'Contas--theme')
+#7 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(97): Bake\Shell\Task\ModelTask->bake('Contas--theme')
+#8 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\BakeShell.php(257): Bake\Shell\Task\ModelTask->main('Contas--theme')
+#9 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('Contas--theme', 0)
+#10 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\BakeShell.php(258): Cake\Collection\Collection->each(Object(Closure))
+#11 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\Shell.php(458): Bake\Shell\BakeShell->all('contas--theme', 'TwitterBootstra...')
+#12 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Cake\Console\Shell->runCommand(Array, true, Array)
+#13 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#14 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#15 C:\xampp\htdocs\restaurante\codigo_fonte\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#16 {main}
+
+
+2017-07-14 04:25:28 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'sgr.contas__theme' doesn't exist in C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 131
+Stack Trace:
+#0 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'contas__theme', Array, Object(Cake\Database\Schema\TableSchema))
+#1 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('contas__theme', Array)
+#2 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\ORM\Table.php(531): Cake\Database\Schema\CachedCollection->describe('contas__theme')
+#3 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\ORM\Table.php(652): Cake\ORM\Table->getSchema()
+#4 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(217): Cake\ORM\Table->getPrimaryKey()
+#5 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(127): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(110): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'contas__theme', 'Contas--theme')
+#7 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(97): Bake\Shell\Task\ModelTask->bake('Contas--theme')
+#8 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\BakeShell.php(257): Bake\Shell\Task\ModelTask->main('Contas--theme')
+#9 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Collection\CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('Contas--theme', 0)
+#10 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\bake\src\Shell\BakeShell.php(258): Cake\Collection\Collection->each(Object(Closure))
+#11 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\Shell.php(458): Bake\Shell\BakeShell->all('contas--theme', 'TwitterBootstra...')
+#12 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Cake\Console\Shell->runCommand(Array, true, Array)
+#13 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#14 C:\xampp\htdocs\restaurante\codigo_fonte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#15 C:\xampp\htdocs\restaurante\codigo_fonte\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#16 {main}
+
+
