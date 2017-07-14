@@ -44,6 +44,9 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->viewBuilder()->theme('TwitterBootstrap');
+        $this->set('project_name', 'SGR');
+        $this->viewBuilder()->layout('adminlte');
+
 
         /*
          * Enable the following components for recommended CakePHP security settings.
