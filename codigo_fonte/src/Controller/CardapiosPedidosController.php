@@ -115,4 +115,15 @@ class CardapiosPedidosController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function cozinha($status = 'Pendente', $status = 'Em Andamento')
+    {
+        $this->paginate = [
+            'contain' => ['Pedidos', 'Cardapios']
+        ];
+        $cardapiosPedidos = $this->paginate($this->CardapiosPedidos);
+
+        $this->set(compact('cardapiosPedidos'));
+        $this->set('_serialize', ['cardapiosPedidos']);
+    }
 }

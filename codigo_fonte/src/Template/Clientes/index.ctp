@@ -14,7 +14,7 @@
             <tr>
                 <th><?= $this->Paginator->sort('Nome') ?></th>
                 <th><?= $this->Paginator->sort('CPF') ?></th>
-                <th><?= $this->Paginator->sort('Telefone Residencial') ?></th>
+                <th><?= $this->Paginator->sort('Telefone Residêncial') ?></th>
                 <th><?= $this->Paginator->sort('Telefone Celular') ?></th>
                 <th><?= $this->Paginator->sort('Data de Nascimento') ?></th>
                 <th><?= $this->Paginator->sort('Status') ?></th>
@@ -39,6 +39,8 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+
+
     <div class="paginator">
         <center>
             <ul class="pagination">
@@ -47,7 +49,7 @@
                 <?= $this->Paginator->next(__('próximo') . ' &raquo;', ['escape'=>false]) ?>
             </ul>
             <p><?= $this->Paginator->counter(__('Página {{page}} de {{pages}}, exibindo {{current}} registro no total de: 
-         {{count}}, iniciando pelo registro {{start}}, terminando em {{end}}')) ?></p>
+         {{count}} '))?></p>
         </div>
     </center>
 </div>

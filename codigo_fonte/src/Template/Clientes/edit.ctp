@@ -15,12 +15,15 @@
     <fieldset>
         <legend><?= 'Editar Cliente' ?></legend>
         <?php
-            echo $this->Form->input('nome');
-            echo $this->Form->input('cpf');
+
+            $opts = array('Ativo' => __('Ativo'), 'Desativo' => __('Desativo'));
+            echo $this->Form->input('nome', array('label'=>'Nome Completo'));
+            echo $this->Form->input('cpf', array('label' => 'CPF'));
             echo $this->Form->input('telefone_residencial');
             echo $this->Form->input('telefone_celular');
-            echo $this->Form->input('dt_nascimento', ['empty' => true, 'default' => '']);
             echo $this->Form->input('status');
+            echo $this->Form->input('dt_nascimento', ['empty' => true, 'default' => '']);
+            echo $this->Form->input('status', array('options' => $opts, 'label' => __('Status')));
         ?>
     </fieldset>
     <?= $this->Form->button(__('Salvar')) ?>

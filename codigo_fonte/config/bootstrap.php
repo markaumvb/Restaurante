@@ -221,3 +221,6 @@ if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
     Plugin::load('TwitterBootstrap');
 }
+
+Cake\I18n\FrozenDate::settoStringFormat('dd/MM/yyyy - hh:mm:ss');
+Cake\I18n\FrozenTime::settoStringFormat('dd/MM/yyyy - hh:mm:ss');
