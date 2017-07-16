@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Jul-2017 às 05:51
+-- Generation Time: 16-Jul-2017 às 06:11
 -- Versão do servidor: 10.1.21-MariaDB
 -- PHP Version: 7.0.15
 
@@ -224,8 +224,8 @@ INSERT INTO `mesas` (`id`, `numero_mesa`, `cadeiras`, `status`, `created`, `modi
 (2, 2, 4, 'Livre', '2017-07-14 04:33:57', '2017-07-14 04:33:57'),
 (3, 3, 6, 'Livre', '2017-07-14 04:34:04', '2017-07-14 04:34:04'),
 (4, 4, 6, 'Livre', '2017-07-14 04:34:12', '2017-07-14 04:34:12'),
-(5, 5, 2, 'Livre', '2017-07-14 04:34:18', '2017-07-14 04:34:18'),
-(6, 10, 10, 'Livre', '2017-07-14 04:52:31', '2017-07-14 04:52:31');
+(5, 5, 2, 'Reservada', '2017-07-14 04:34:18', '2017-07-14 04:34:18'),
+(6, 10, 10, 'Reservada', '2017-07-14 04:52:31', '2017-07-14 04:52:31');
 
 -- --------------------------------------------------------
 
@@ -244,9 +244,18 @@ CREATE TABLE `mesas_reservas` (
 --
 
 INSERT INTO `mesas_reservas` (`id`, `mesa_id`, `reserva_id`) VALUES
-(1, 2, 1),
-(2, 1, 2),
-(3, 3, 2);
+(4, 5, 3),
+(5, 6, 3);
+
+--
+-- Acionadores `mesas_reservas`
+--
+DELIMITER $$
+CREATE TRIGGER `reserva_mesa` AFTER INSERT ON `mesas_reservas` FOR EACH ROW BEGIN
+    UPDATE mesas SET status = 'Reservada' WHERE mesas.id = new.mesa_id;
+  END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -316,7 +325,8 @@ CREATE TABLE `reservas` (
 
 INSERT INTO `reservas` (`id`, `cliente_id`, `lugares`, `datahora`, `status`, `created`, `modified`) VALUES
 (1, 3, 10, '2022-01-01 00:00:00', 'Ativa', '2017-07-14 22:44:31', '2017-07-14 22:44:31'),
-(2, 1, 10, '2022-01-01 00:00:00', 'Ativo', '2017-07-16 03:30:51', '2017-07-16 03:30:51');
+(2, 1, 10, '2022-01-01 00:00:00', 'Ativo', '2017-07-16 03:30:51', '2017-07-16 03:30:51'),
+(3, 1, 5, '2022-01-01 00:00:00', 'Ativo', '2017-07-16 04:10:51', '2017-07-16 04:10:51');
 
 --
 -- Indexes for dumped tables
@@ -465,7 +475,7 @@ ALTER TABLE `mesas`
 -- AUTO_INCREMENT for table `mesas_reservas`
 --
 ALTER TABLE `mesas_reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `pedidos`
 --
@@ -485,7 +495,7 @@ ALTER TABLE `quotas_contas`
 -- AUTO_INCREMENT for table `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
