@@ -39,6 +39,33 @@
         </tr>
     </table>
     <div class="related">
+        <h4><?= __('Endereços do Cliente') ?></h4>
+        <?php if (!empty($cliente->enderecos)): ?>
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>Rua</th>
+                <th>Complemento</th>
+                <th>Número</th>
+                <th class="actions"><?= __('ações') ?></th>
+            </tr>
+            <?php foreach ($cliente->enderecos as $enderecos): ?>
+            <tr>
+                <td><?= h($enderecos->nome) ?></td>
+                <td><?= h($enderecos->complemento) ?></td>
+                <td><?= h($enderecos->numero) ?></td>
+                <td class="actions">
+
+                    <?= $this->Html->link(__('Editar'), ['controller' => 'Enderecos', 'action' => 'edit', $enderecos->id]) ?>
+
+                    <?= $this->Form->postLink(__('Excluir'), ['controller' => 'Enderecos', 'action' => 'delete', $enderecos->id], ['confirm' => __('Tem certeza que deseja excluir o endereço: # {0}?', $enderecos->nome)]) ?>
+
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php endif; ?>
+    </div>
+    <div class="related">
         <h4><?= __('Reservas feitas pelo cliente') ?></h4>
         <?php if (!empty($cliente->reservas)): ?>
         <table class="table table-striped table-hover">

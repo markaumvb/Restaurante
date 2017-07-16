@@ -4,22 +4,19 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Cliente Entity
+ * Endereco Entity
  *
  * @property int $id
+ * @property int $cliente_id
  * @property string $nome
- * @property string $cpf
- * @property string $telefone_residencial
- * @property string $telefone_celular
- * @property \Cake\I18n\FrozenDate $dt_nascimento
- * @property string $status
+ * @property string $complemento
+ * @property string $numero
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Endereco[] $enderecos
- * @property \App\Model\Entity\Reserva[] $reservas
+ * @property \App\Model\Entity\Cliente $cliente
  */
-class Cliente extends Entity
+class Endereco extends Entity
 {
 
     /**

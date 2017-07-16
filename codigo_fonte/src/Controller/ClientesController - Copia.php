@@ -36,7 +36,7 @@ class ClientesController extends AppController
     public function view($id = null)
     {
         $cliente = $this->Clientes->get($id, [
-            'contain' => ['Enderecos', 'Reservas']
+            'contain' => ['Reservas']
         ]);
 
         $this->set('cliente', $cliente);
@@ -64,8 +64,6 @@ class ClientesController extends AppController
         $this->set('_serialize', ['cliente']);
     }
 
-
-
     /**
      * Edit method
      *
@@ -91,7 +89,6 @@ class ClientesController extends AppController
         $this->set('_serialize', ['cliente']);
     }
 
-
     /**
      * Delete method
      *
@@ -112,12 +109,3 @@ class ClientesController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 }
-
-    /**
-     * Delete method
-     *
-     * @param string|null $id Cliente id.
-     * @return \Cake\Http\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-

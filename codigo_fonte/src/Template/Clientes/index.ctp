@@ -3,7 +3,6 @@
     <ul class="nav nav-pills nav-stacked">
         <li class="active"><a><?= __('Menu') ?></a></li>
         <li><?= $this->Html->link(__('Novo {0}', ['Cliente']), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Listar {0}', ['Reservas']), ['controller' => 'Reservas', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Nova {0}', ['Reserva']), ['controller' => 'Reservas', 'action' => 'add']) ?></li>
     </ul>
 </nav>

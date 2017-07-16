@@ -1,6 +1,6 @@
 <nav class="col-md-2 columns" id="actions-sidebar">
     <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a><?= __('Actions') ?></a></li>
+        <li class="active"><a><?= __('Menu') ?></a></li>
         <li><?= $this->Form->postLink(
                 __('Excluir'),
                 ['action' => 'delete', $cliente->id],

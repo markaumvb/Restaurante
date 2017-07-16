@@ -14,26 +14,20 @@
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('cliente_id') ?></th>
                 <th><?= $this->Paginator->sort('lugares') ?></th>
                 <th><?= $this->Paginator->sort('datahora') ?></th>
                 <th><?= $this->Paginator->sort('status') ?></th>
-                <th><?= $this->Paginator->sort('created') ?></th>
-                <th><?= $this->Paginator->sort('modified') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($reservas as $reserva): ?>
             <tr>
-                <td><?= $this->Number->format($reserva->id) ?></td>
-                <td><?= $reserva->has('cliente') ? $this->Html->link($reserva->cliente->id, ['controller' => 'Clientes', 'action' => 'view', $reserva->cliente->id]) : '' ?></td>
+                <td><?= $reserva->has('cliente') ? $this->Html->link($reserva->cliente->nome, ['controller' => 'Clientes', 'action' => 'view', $reserva->cliente->id]) : '' ?></td>
                 <td><?= $this->Number->format($reserva->lugares) ?></td>
                 <td><?= h($reserva->datahora) ?></td>
                 <td><?= h($reserva->status) ?></td>
-                <td><?= h($reserva->created) ?></td>
-                <td><?= h($reserva->modified) ?></td>
                 <td class="actions" style="white-space:nowrap">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $reserva->id], ['class'=>'btn btn-default btn-xs']) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $reserva->id], ['class'=>'btn btn-primary btn-xs']) ?>

@@ -17,7 +17,7 @@ class ClientesFixture extends TestFixture
      */
     // @codingStandardsIgnoreStart
     public $fields = [
-        'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'nome' => ['type' => 'string', 'length' => 45, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'cpf' => ['type' => 'string', 'length' => 15, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'telefone_residencial' => ['type' => 'string', 'length' => 20, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
@@ -49,10 +49,10 @@ class ClientesFixture extends TestFixture
             'cpf' => 'Lorem ipsum d',
             'telefone_residencial' => 'Lorem ipsum dolor ',
             'telefone_celular' => 'Lorem ipsum dolor ',
-            'dt_nascimento' => '2017-07-14',
+            'dt_nascimento' => '2017-07-16',
             'status' => 'Lorem ipsum d',
-            'created' => '2017-07-14 05:45:46',
-            'modified' => '2017-07-14 05:45:46'
+            'created' => '2017-07-16 02:56:42',
+            'modified' => '2017-07-16 02:56:42'
         ],
     ];
 }

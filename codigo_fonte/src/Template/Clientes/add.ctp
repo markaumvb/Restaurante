@@ -1,9 +1,9 @@
 <nav class="col-md-2 columns" id="actions-sidebar">
     <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a><?= __('Actions') ?></a></li>
-        <li><?= $this->Html->link(__('List {0}', 'Clientes'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List {0}', 'Reservas'), ['controller' => 'Reservas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New {0}', 'Reserva'), ['controller' => 'Reservas', 'action' => 'add']) ?></li>
+        <li class="active"><a><?= __('Menu') ?></a></li>
+        <li><?= $this->Html->link(__('Voltar'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Ver Reservas do Cliente'), ['controller' => 'Reservas', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Nova reserva para o cliente'), ['controller' => 'Reservas', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="clientes form col-md-10 columns content">
@@ -25,9 +25,6 @@
     <?= $this->Form->button(__('Salvar')) ?>
     <?= $this->Form->end() ?>
 </div>
-
-
-
 
 
 

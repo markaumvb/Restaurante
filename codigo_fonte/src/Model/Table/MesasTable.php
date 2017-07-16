@@ -38,7 +38,7 @@ class MesasTable extends Table
         parent::initialize($config);
 
         $this->setTable('mesas');
-        $this->setDisplayField('id');
+        $this->setDisplayField('numero_mesa');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');

@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ClientesTable;
+use App\Model\Table\EnderecosClientesTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ClientesTable Test Case
+ * App\Model\Table\EnderecosClientesTable Test Case
  */
-class ClientesTableTest extends TestCase
+class EnderecosClientesTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\ClientesTable
+     * @var \App\Model\Table\EnderecosClientesTable
      */
-    public $Clientes;
+    public $EnderecosClientes;
 
     /**
      * Fixtures
@@ -24,6 +24,7 @@ class ClientesTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
+        'app.enderecos_clientes',
         'app.clientes',
         'app.enderecos',
         'app.reservas',
@@ -45,8 +46,8 @@ class ClientesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Clientes') ? [] : ['className' => ClientesTable::class];
-        $this->Clientes = TableRegistry::get('Clientes', $config);
+        $config = TableRegistry::exists('EnderecosClientes') ? [] : ['className' => EnderecosClientesTable::class];
+        $this->EnderecosClientes = TableRegistry::get('EnderecosClientes', $config);
     }
 
     /**
@@ -56,7 +57,7 @@ class ClientesTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Clientes);
+        unset($this->EnderecosClientes);
 
         parent::tearDown();
     }

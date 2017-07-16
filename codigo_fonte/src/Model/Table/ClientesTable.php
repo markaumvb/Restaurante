@@ -9,6 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Clientes Model
  *
+ * @property \App\Model\Table\EnderecosTable|\Cake\ORM\Association\HasMany $Enderecos
  * @property \App\Model\Table\ReservasTable|\Cake\ORM\Association\HasMany $Reservas
  *
  * @method \App\Model\Entity\Cliente get($primaryKey, $options = [])
@@ -35,11 +36,14 @@ class ClientesTable extends Table
         parent::initialize($config);
 
         $this->setTable('clientes');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
+        $this->hasMany('Enderecos', [
+            'foreignKey' => 'cliente_id'
+        ]);
         $this->hasMany('Reservas', [
             'foreignKey' => 'cliente_id'
         ]);

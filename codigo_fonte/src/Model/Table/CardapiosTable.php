@@ -36,7 +36,7 @@ class CardapiosTable extends Table
         parent::initialize($config);
 
         $this->setTable('cardapios');
-        $this->setDisplayField('id');
+        $this->setDisplayField('descricao');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
