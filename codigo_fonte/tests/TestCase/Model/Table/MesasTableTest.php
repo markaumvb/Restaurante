@@ -27,8 +27,11 @@ class MesasTableTest extends TestCase
         'app.mesas',
         'app.agregacoes',
         'app.contas',
+        'app.quotas_contas',
         'app.pedidos',
         'app.reservas',
+        'app.clientes',
+        'app.enderecos',
         'app.mesas_reservas'
     ];
 

@@ -17,7 +17,7 @@ class PedidosFixture extends TestFixture
      */
     // @codingStandardsIgnoreStart
     public $fields = [
-        'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'mesa_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'datahora' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'valortotal' => ['type' => 'float', 'length' => 10, 'precision' => 2, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
@@ -44,12 +44,12 @@ class PedidosFixture extends TestFixture
         [
             'id' => 1,
             'mesa_id' => 1,
-            'datahora' => '2017-07-14 05:45:04',
+            'datahora' => '2017-07-18 04:40:42',
             'valortotal' => 1,
             'entrega' => 'Lorem ipsum dolor ',
             'status' => 'Lorem ipsum dolor ',
-            'created' => '2017-07-14 05:45:04',
-            'modified' => '2017-07-14 05:45:04'
+            'created' => '2017-07-18 04:40:42',
+            'modified' => '2017-07-18 04:40:42'
         ],
     ];
 }

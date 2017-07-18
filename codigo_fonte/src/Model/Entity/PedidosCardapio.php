@@ -7,14 +7,13 @@ use Cake\ORM\Entity;
  * PedidosCardapio Entity
  *
  * @property int $id
- * @property int $pedido_id
  * @property int $cardapio_id
- * @property string $obs
+ * @property int $pedido_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
- * @property \App\Model\Entity\Pedido $pedido
  * @property \App\Model\Entity\Cardapio $cardapio
+ * @property \App\Model\Entity\Pedido $pedido
  */
 class PedidosCardapio extends Entity
 {

@@ -45,8 +45,8 @@ class CardapiosFixture extends TestFixture
             'id' => 1,
             'codigo' => 'Lor',
             'descricao' => 'Lorem ipsum dolor sit amet',
-            'created' => '2017-07-14 05:46:07',
-            'modified' => '2017-07-14 05:46:07',
+            'created' => '2017-07-18 04:40:35',
+            'modified' => '2017-07-18 04:40:35',
             'preco' => 1.5,
             'status' => 'Lorem ipsum dolor '
         ],

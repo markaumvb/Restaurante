@@ -21,7 +21,7 @@ class PedidosCardapiosController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Pedidos', 'Cardapios']
+            'contain' => ['Cardapios', 'Pedidos']
         ];
         $pedidosCardapios = $this->paginate($this->PedidosCardapios);
 
@@ -39,7 +39,7 @@ class PedidosCardapiosController extends AppController
     public function view($id = null)
     {
         $pedidosCardapio = $this->PedidosCardapios->get($id, [
-            'contain' => ['Pedidos', 'Cardapios']
+            'contain' => ['Cardapios', 'Pedidos']
         ]);
 
         $this->set('pedidosCardapio', $pedidosCardapio);
@@ -63,9 +63,9 @@ class PedidosCardapiosController extends AppController
             }
             $this->Flash->error(__('The pedidos cardapio could not be saved. Please, try again.'));
         }
-        $pedidos = $this->PedidosCardapios->Pedidos->find('list', ['limit' => 200]);
         $cardapios = $this->PedidosCardapios->Cardapios->find('list', ['limit' => 200]);
-        $this->set(compact('pedidosCardapio', 'pedidos', 'cardapios'));
+        $pedidos = $this->PedidosCardapios->Pedidos->find('list', ['limit' => 200]);
+        $this->set(compact('pedidosCardapio', 'cardapios', 'pedidos'));
         $this->set('_serialize', ['pedidosCardapio']);
     }
 
@@ -90,9 +90,9 @@ class PedidosCardapiosController extends AppController
             }
             $this->Flash->error(__('The pedidos cardapio could not be saved. Please, try again.'));
         }
-        $pedidos = $this->PedidosCardapios->Pedidos->find('list', ['limit' => 200]);
         $cardapios = $this->PedidosCardapios->Cardapios->find('list', ['limit' => 200]);
-        $this->set(compact('pedidosCardapio', 'pedidos', 'cardapios'));
+        $pedidos = $this->PedidosCardapios->Pedidos->find('list', ['limit' => 200]);
+        $this->set(compact('pedidosCardapio', 'cardapios', 'pedidos'));
         $this->set('_serialize', ['pedidosCardapio']);
     }
 

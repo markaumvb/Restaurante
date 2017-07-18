@@ -26,8 +26,8 @@
             <?php foreach ($enderecosClientes as $enderecosCliente): ?>
             <tr>
                 <td><?= $this->Number->format($enderecosCliente->id) ?></td>
-                <td><?= $enderecosCliente->has('cliente') ? $this->Html->link($enderecosCliente->cliente->id, ['controller' => 'Clientes', 'action' => 'view', $enderecosCliente->cliente->id]) : '' ?></td>
-                <td><?= $enderecosCliente->has('endereco') ? $this->Html->link($enderecosCliente->endereco->id, ['controller' => 'Enderecos', 'action' => 'view', $enderecosCliente->endereco->id]) : '' ?></td>
+                <td><?= $enderecosCliente->has('cliente') ? $this->Html->link($enderecosCliente->cliente->nome, ['controller' => 'Clientes', 'action' => 'view', $enderecosCliente->cliente->id]) : '' ?></td>
+                <td><?= $enderecosCliente->has('endereco') ? $this->Html->link($enderecosCliente->endereco->nome, ['controller' => 'Enderecos', 'action' => 'view', $enderecosCliente->endereco->id]) : '' ?></td>
                 <td><?= h($enderecosCliente->created) ?></td>
                 <td><?= h($enderecosCliente->modified) ?></td>
                 <td class="actions" style="white-space:nowrap">

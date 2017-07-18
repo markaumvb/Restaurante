@@ -25,8 +25,16 @@ class PedidosCardapiosTableTest extends TestCase
      */
     public $fixtures = [
         'app.pedidos_cardapios',
+        'app.cardapios',
         'app.pedidos',
-        'app.cardapios'
+        'app.mesas',
+        'app.agregacoes',
+        'app.contas',
+        'app.quotas_contas',
+        'app.reservas',
+        'app.clientes',
+        'app.enderecos',
+        'app.mesas_reservas'
     ];
 
     /**

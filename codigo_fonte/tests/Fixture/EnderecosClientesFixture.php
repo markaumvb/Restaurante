@@ -42,8 +42,8 @@ class EnderecosClientesFixture extends TestFixture
             'id' => 1,
             'cliente_id' => 1,
             'endereco_id' => 1,
-            'created' => '2017-07-16 03:02:45',
-            'modified' => '2017-07-16 03:02:45'
+            'created' => '2017-07-18 04:44:12',
+            'modified' => '2017-07-18 04:44:12'
         ],
     ];
 }

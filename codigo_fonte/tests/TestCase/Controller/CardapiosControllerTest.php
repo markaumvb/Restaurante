@@ -18,13 +18,6 @@ class CardapiosControllerTest extends IntegrationTestCase
     public $fixtures = [
         'app.cardapios',
         'app.pedidos',
-        'app.mesas',
-        'app.agregacoes',
-        'app.contas',
-        'app.quotas_contas',
-        'app.reservas',
-        'app.clientes',
-        'app.mesas_reservas',
         'app.pedidos_cardapios'
     ];
 

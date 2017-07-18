@@ -45,8 +45,8 @@ class MesasFixture extends TestFixture
             'numero_mesa' => 1,
             'cadeiras' => 1,
             'status' => 'Lorem ipsum d',
-            'created' => '2017-07-14 05:43:42',
-            'modified' => '2017-07-14 05:43:42'
+            'created' => '2017-07-18 04:38:33',
+            'modified' => '2017-07-18 04:38:33'
         ],
     ];
 }

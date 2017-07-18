@@ -16,11 +16,11 @@
     <table class="table table-striped table-hover">
         <tr>
             <th>Cliente</th>
-            <td><?= $enderecosCliente->has('cliente') ? $this->Html->link($enderecosCliente->cliente->id, ['controller' => 'Clientes', 'action' => 'view', $enderecosCliente->cliente->id]) : '' ?></td>
+            <td><?= $enderecosCliente->has('cliente') ? $this->Html->link($enderecosCliente->cliente->nome, ['controller' => 'Clientes', 'action' => 'view', $enderecosCliente->cliente->id]) : '' ?></td>
         </tr>
         <tr>
             <th>Endereco</th>
-            <td><?= $enderecosCliente->has('endereco') ? $this->Html->link($enderecosCliente->endereco->id, ['controller' => 'Enderecos', 'action' => 'view', $enderecosCliente->endereco->id]) : '' ?></td>
+            <td><?= $enderecosCliente->has('endereco') ? $this->Html->link($enderecosCliente->endereco->nome, ['controller' => 'Enderecos', 'action' => 'view', $enderecosCliente->endereco->id]) : '' ?></td>
         </tr>
         <tr>
             <th>'Id</th>

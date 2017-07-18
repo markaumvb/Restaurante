@@ -9,8 +9,8 @@ use Cake\Validation\Validator;
 /**
  * PedidosCardapios Model
  *
- * @property \App\Model\Table\PedidosTable|\Cake\ORM\Association\BelongsTo $Pedidos
  * @property \App\Model\Table\CardapiosTable|\Cake\ORM\Association\BelongsTo $Cardapios
+ * @property \App\Model\Table\PedidosTable|\Cake\ORM\Association\BelongsTo $Pedidos
  *
  * @method \App\Model\Entity\PedidosCardapio get($primaryKey, $options = [])
  * @method \App\Model\Entity\PedidosCardapio newEntity($data = null, array $options = [])
@@ -41,12 +41,12 @@ class PedidosCardapiosTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Pedidos', [
-            'foreignKey' => 'pedido_id',
-            'joinType' => 'INNER'
-        ]);
         $this->belongsTo('Cardapios', [
             'foreignKey' => 'cardapio_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Pedidos', [
+            'foreignKey' => 'pedido_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -63,9 +63,6 @@ class PedidosCardapiosTable extends Table
             ->integer('id')
             ->allowEmpty('id', 'create');
 
-        $validator
-            ->allowEmpty('obs');
-
         return $validator;
     }
 
@@ -78,8 +75,8 @@ class PedidosCardapiosTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['pedido_id'], 'Pedidos'));
         $rules->add($rules->existsIn(['cardapio_id'], 'Cardapios'));
+        $rules->add($rules->existsIn(['pedido_id'], 'Pedidos'));
 
         return $rules;
     }

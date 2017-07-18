@@ -20,8 +20,10 @@ class PedidosControllerTest extends IntegrationTestCase
         'app.mesas',
         'app.agregacoes',
         'app.contas',
+        'app.quotas_contas',
         'app.reservas',
         'app.clientes',
+        'app.enderecos',
         'app.mesas_reservas',
         'app.cardapios',
         'app.pedidos_cardapios'

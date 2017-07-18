@@ -70,23 +70,6 @@ class PedidosTable extends Table
             ->integer('id')
             ->allowEmpty('id', 'create');
 
-        $validator
-            ->dateTime('datahora')
-            ->requirePresence('datahora', 'create')
-            ->notEmpty('datahora');
-
-        $validator
-            ->numeric('valortotal')
-            ->requirePresence('valortotal', 'create')
-            ->notEmpty('valortotal');
-
-        $validator
-            ->requirePresence('entrega', 'create')
-            ->notEmpty('entrega');
-
-        $validator
-            ->requirePresence('status', 'create')
-            ->notEmpty('status');
 
         return $validator;
     }
