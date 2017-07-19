@@ -12,36 +12,22 @@
     </ul>
 </nav>
 <div class="reservas view col-lg-10 col-md-9">
-    <h3><?= h($reserva->id) ?></h3>
+    <h3><?= h($reserva->cliente->nome) ?></h3>
     <table class="table table-striped table-hover">
-        <tr>
-            <th>Cliente</th>
-            <td><?= $reserva->has('cliente') ? $this->Html->link($reserva->cliente->id, ['controller' => 'Clientes', 'action' => 'view', $reserva->cliente->id]) : '' ?></td>
-        </tr>
+    
         <tr>
             <th>Status</th>
             <td><?= h($reserva->status) ?></td>
         </tr>
         <tr>
-            <th>'Id</th>
-            <td><?= $this->Number->format($reserva->id) ?></td>
-        </tr>
-        <tr>
-            <th>'Lugares</th>
+            <th>Lugares</th>
             <td><?= $this->Number->format($reserva->lugares) ?></td>
         </tr>
         <tr>
-            <th>Datahora</th>
+            <th>Data / hora</th>
             <td><?= h($reserva->datahora) ?></tr>
         </tr>
-        <tr>
-            <th>Created</th>
-            <td><?= h($reserva->created) ?></tr>
-        </tr>
-        <tr>
-            <th>Modified</th>
-            <td><?= h($reserva->modified) ?></tr>
-        </tr>
+
     </table>
     <div class="related">
         <h4><?= __('Related {0}', ['Mesas']) ?></h4>
