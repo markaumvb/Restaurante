@@ -21,6 +21,7 @@ class PedidosController extends AppController
      */
     public function index()
     {
+
         $this->paginate = [
             'contain' => ['Mesas']
         ];

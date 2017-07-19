@@ -14,7 +14,8 @@
         <legend><?= 'Add Pedidos Cardapio' ?></legend>
         <?php
             echo $this->Form->input('cardapio_id', ['options' => $cardapios]);
-            echo $this->Form->input('pedido_id');
+            echo $this->Form->input('pedido_id', ['options' => $pedidos]);
+            echo $this->Form->input('status');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

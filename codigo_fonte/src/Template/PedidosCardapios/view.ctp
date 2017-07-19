@@ -16,15 +16,19 @@
     <table class="table table-striped table-hover">
         <tr>
             <th>Cardapio</th>
-            <td><?= $pedidosCardapio->has('cardapio') ? $this->Html->link($pedidosCardapio->cardapio->id, ['controller' => 'Cardapios', 'action' => 'view', $pedidosCardapio->cardapio->id]) : '' ?></td>
+            <td><?= $pedidosCardapio->has('cardapio') ? $this->Html->link($pedidosCardapio->cardapio->descricao, ['controller' => 'Cardapios', 'action' => 'view', $pedidosCardapio->cardapio->id]) : '' ?></td>
+        </tr>
+        <tr>
+            <th>Pedido</th>
+            <td><?= $pedidosCardapio->has('pedido') ? $this->Html->link($pedidosCardapio->pedido->id, ['controller' => 'Pedidos', 'action' => 'view', $pedidosCardapio->pedido->id]) : '' ?></td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td><?= h($pedidosCardapio->status) ?></td>
         </tr>
         <tr>
             <th>'Id</th>
             <td><?= $this->Number->format($pedidosCardapio->id) ?></td>
-        </tr>
-        <tr>
-            <th>'Pedido Id</th>
-            <td><?= $this->Number->format($pedidosCardapio->pedido_id) ?></td>
         </tr>
         <tr>
             <th>Created</th>

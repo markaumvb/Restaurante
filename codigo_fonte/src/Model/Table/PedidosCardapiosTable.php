@@ -63,6 +63,10 @@ class PedidosCardapiosTable extends Table
             ->integer('id')
             ->allowEmpty('id', 'create');
 
+        $validator
+            ->requirePresence('status', 'create')
+            ->notEmpty('status');
+
         return $validator;
     }
 

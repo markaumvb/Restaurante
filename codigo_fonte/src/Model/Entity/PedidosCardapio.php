@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property int $pedido_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ * @property string $status
  *
  * @property \App\Model\Entity\Cardapio $cardapio
  * @property \App\Model\Entity\Pedido $pedido

@@ -20,9 +20,20 @@ class PedidosCardapiosController extends AppController
      */
     public function index()
     {
+ 
         $this->paginate = [
-            'contain' => ['Cardapios', 'Pedidos']
-        ];
+            'contain' => ['Cardapios', 'Pedidos'],
+            'conditions' =>  array (
+            'OR' => array(
+            array('pedidosCardapios.status' => 'Pendente'),
+            array('pedidosCardapios.status' => 'em Andamento')
+            )
+        )
+            //'conditions' => [
+            //'pedidosCardapios.status' => ('Pendenete')]
+
+         ];
+
         $pedidosCardapios = $this->paginate($this->PedidosCardapios);
 
         $this->set(compact('pedidosCardapios'));
@@ -116,13 +127,30 @@ class PedidosCardapiosController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    private function iniciar_preparo($id=null)
-    {
 
+    public function prepara($id = null){
+        $pedidosCardapio = $this->PedidosCardapios->get($id);
+        $pedidosCardapio->status = 'Em andamento';
+
+        if ($this->PedidosCardapios->save($pedidosCardapio)) {
+                $this->Flash->success(__('Item com preparo iniciado'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('Erro ao iniciar'));
     }
 
-    private function finalizar_preparo($id=null)
-    {
-    
+    public function finaliza($id = null){
+        $pedidosCardapio = $this->PedidosCardapios->get($id);
+        $pedidosCardapio->status = 'Finalizado';
+
+        if ($this->PedidosCardapios->save($pedidosCardapio)) {
+                $this->Flash->success(__('Item com preparo iniciado'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('Erro ao iniciar'));
+
+
     }
 }

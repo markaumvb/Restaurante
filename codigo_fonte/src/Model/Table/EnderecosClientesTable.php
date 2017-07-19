@@ -44,7 +44,7 @@ class EnderecosClientesTable extends Table
         $this->belongsTo('Clientes', [
             'foreignKey' => 'cliente_id',
             'joinType' => 'INNER',
-            'setDisplayField' => 'nome'
+            
         ]);
         $this->belongsTo('Enderecos', [
             'foreignKey' => 'endereco_id',

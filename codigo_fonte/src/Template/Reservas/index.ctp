@@ -1,12 +1,9 @@
 <div class="row">
 <nav class="col-md-2" id="actions-sidebar">
     <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a><?= __('Actions') ?></a></li>
-        <li><?= $this->Html->link(__('New {0}', ['Reserva']), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List {0}', ['Clientes']), ['controller' => 'Clientes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New {0}', ['Cliente']), ['controller' => 'Clientes', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List {0}', ['Mesas']), ['controller' => 'Mesas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New {0}', ['Mesa']), ['controller' => 'Mesas', 'action' => 'add']) ?></li>
+        <li class="active"><a><?= __('Menu') ?></a></li>
+        <li><?= $this->Html->link(__('Nova {0}', ['Reserva']), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Novo {0}', ['Cliente']), ['controller' => 'Clientes', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="reservas index col-md-10 columns content">
@@ -16,9 +13,9 @@
             <tr>
                 <th><?= $this->Paginator->sort('cliente_id') ?></th>
                 <th><?= $this->Paginator->sort('lugares') ?></th>
-                <th><?= $this->Paginator->sort('datahora') ?></th>
-                <th><?= $this->Paginator->sort('status') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
+                <th><?= $this->Paginator->sort('data / hora') ?></th>
+                <th><?= $this->Paginator->sort('Status') ?></th>
+                <th class="actions"><?= __('Ações') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -37,15 +34,15 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    <div class="paginator">
+ <div class="paginator">
         <center>
             <ul class="pagination">
-                <?= $this->Paginator->prev('&laquo; ' . __('previous'), ['escape'=>false]) ?>
+                <?= $this->Paginator->prev('&laquo; ' . __('anterior'), ['escape'=>false]) ?>
                 <?= $this->Paginator->numbers(['escape'=>false]) ?>
-                <?= $this->Paginator->next(__('next') . ' &raquo;', ['escape'=>false]) ?>
+                <?= $this->Paginator->next(__('próximo') . ' &raquo;', ['escape'=>false]) ?>
             </ul>
-            <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} records out of
-         {{count}} total, starting on record {{start}}, ending on {{end}}')) ?></p>
+            <p><?= $this->Paginator->counter(__('Página {{page}} de {{pages}}, exibindo {{current}} registro no total de: 
+         {{count}} '))?></p>
         </div>
     </center>
 </div>
