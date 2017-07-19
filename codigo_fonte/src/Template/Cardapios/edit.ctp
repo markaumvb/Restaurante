@@ -15,15 +15,14 @@
 <div class="cardapios form col-md-10 columns content">
     <?= $this->Form->create($cardapio) ?>
     <fieldset>
-        <legend><?= 'Edit Cardapio' ?></legend>
+        <legend><?= 'Editar Cardápio' ?></legend>
         <?php
             echo $this->Form->input('codigo');
             echo $this->Form->input('descricao');
             echo $this->Form->input('preco');
             echo $this->Form->input('status');
-            echo $this->Form->input('pedidos._ids', ['options' => $pedidos]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Salvar')) ?>
     <?= $this->Form->end() ?>
 </div>

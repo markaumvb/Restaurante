@@ -115,4 +115,14 @@ class PedidosCardapiosController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    private function iniciar_preparo($id=null)
+    {
+
+    }
+
+    private function finalizar_preparo($id=null)
+    {
+    
+    }
 }

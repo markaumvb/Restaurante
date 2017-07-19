@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Jul-2017 às 06:11
+-- Generation Time: 19-Jul-2017 às 04:09
 -- Versão do servidor: 10.1.21-MariaDB
 -- PHP Version: 7.0.15
 
@@ -77,7 +77,8 @@ INSERT INTO `cardapios` (`id`, `codigo`, `descricao`, `created`, `modified`, `pr
 (3, '003', 'Cerveja Skol lata 350ml', '2017-07-14 04:28:01', '2017-07-14 04:28:01', '5.00', 'Ativo'),
 (4, '004', 'Pizza de Frango Catupiry', '2017-07-14 04:31:58', '2017-07-14 04:31:58', '15.00', 'Ativo'),
 (5, '005', 'Porção de batata frita', '2017-07-14 04:32:20', '2017-07-14 04:32:20', '20.00', 'Ativo'),
-(6, '006', 'Pizza portuguesa Grande', '2017-07-14 04:33:02', '2017-07-14 04:33:02', '28.00', 'Ativo');
+(6, '006', 'Pizza portuguesa Grande', '2017-07-14 04:33:02', '2017-07-14 04:33:02', '28.00', 'Ativo'),
+(7, '007', 'Teste', '2017-07-18 18:24:59', '2017-07-18 18:24:59', '10.00', 'Ativo');
 
 -- --------------------------------------------------------
 
@@ -136,6 +137,13 @@ CREATE TABLE `contas` (
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `contas`
+--
+
+INSERT INTO `contas` (`id`, `mesa_id`, `valor`, `status`, `created`, `modified`) VALUES
+(1, 5, 0.00, 'Pendente', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -158,7 +166,8 @@ CREATE TABLE `enderecos` (
 
 INSERT INTO `enderecos` (`id`, `cliente_id`, `nome`, `complemento`, `numero`, `created`, `modified`) VALUES
 (1, 2, 'Rua Clementino S. Puppi', 'Apto', '774', '2017-07-16 03:05:33', '2017-07-16 03:05:33'),
-(2, 1, 'Rua teste', '', 'apto 50', '2017-07-16 03:30:16', '2017-07-16 03:30:16');
+(2, 1, 'Rua teste', '', 'apto 50', '2017-07-16 03:30:16', '2017-07-16 03:30:16'),
+(3, 1, 'Rua Clementino S. Puppi', '50', '2', '2017-07-18 04:44:32', '2017-07-18 04:44:32');
 
 -- --------------------------------------------------------
 
@@ -222,9 +231,9 @@ CREATE TABLE `mesas` (
 INSERT INTO `mesas` (`id`, `numero_mesa`, `cadeiras`, `status`, `created`, `modified`) VALUES
 (1, 1, 4, 'Livre', '2017-07-14 04:33:48', '2017-07-15 02:27:59'),
 (2, 2, 4, 'Livre', '2017-07-14 04:33:57', '2017-07-14 04:33:57'),
-(3, 3, 6, 'Livre', '2017-07-14 04:34:04', '2017-07-14 04:34:04'),
-(4, 4, 6, 'Livre', '2017-07-14 04:34:12', '2017-07-14 04:34:12'),
-(5, 5, 2, 'Reservada', '2017-07-14 04:34:18', '2017-07-14 04:34:18'),
+(3, 3, 6, 'Ocupada', '2017-07-14 04:34:04', '2017-07-14 04:34:04'),
+(4, 4, 6, 'Reservada', '2017-07-14 04:34:12', '2017-07-14 04:34:12'),
+(5, 5, 2, 'Ocupada', '2017-07-14 04:34:18', '2017-07-14 04:34:18'),
 (6, 10, 10, 'Reservada', '2017-07-14 04:52:31', '2017-07-14 04:52:31');
 
 -- --------------------------------------------------------
@@ -245,7 +254,8 @@ CREATE TABLE `mesas_reservas` (
 
 INSERT INTO `mesas_reservas` (`id`, `mesa_id`, `reserva_id`) VALUES
 (4, 5, 3),
-(5, 6, 3);
+(5, 6, 3),
+(6, 4, 4);
 
 --
 -- Acionadores `mesas_reservas`
@@ -266,13 +276,36 @@ DELIMITER ;
 CREATE TABLE `pedidos` (
   `id` int(11) NOT NULL,
   `mesa_id` int(11) NOT NULL,
-  `datahora` datetime NOT NULL,
-  `valortotal` float(10,2) NOT NULL,
+  `datahora` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `valortotal` float(10,2) NOT NULL DEFAULT '0.00',
   `entrega` varchar(20) NOT NULL DEFAULT 'Não',
   `status` varchar(20) NOT NULL DEFAULT 'Pendente',
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `pedidos`
+--
+
+INSERT INTO `pedidos` (`id`, `mesa_id`, `datahora`, `valortotal`, `entrega`, `status`, `created`, `modified`) VALUES
+(6, 1, '2017-07-18 04:56:19', 0.00, 'Não', 'Pendente', '2017-07-18 04:56:19', '2017-07-18 04:56:19'),
+(7, 6, '2017-07-18 04:56:26', 0.00, 'Não', 'Pendente', '2017-07-18 04:56:26', '2017-07-18 04:56:26'),
+(8, 3, '2017-07-19 01:54:38', 0.00, 'Não', 'Pendente', '2017-07-19 01:54:38', '2017-07-19 01:54:38'),
+(9, 3, '2017-07-19 02:01:00', 0.00, 'Não', 'Pendente', '2017-07-19 02:01:00', '2017-07-19 02:01:00'),
+(10, 5, '2017-07-19 02:04:45', 0.00, 'Não', 'Pendente', '2017-07-19 02:04:45', '2017-07-19 02:04:45');
+
+--
+-- Acionadores `pedidos`
+--
+DELIMITER $$
+CREATE TRIGGER `ocupar_mesa` AFTER INSERT ON `pedidos` FOR EACH ROW BEGIN
+    UPDATE mesas SET status = 'Ocupada' WHERE mesas.id = new.mesa_id;
+    INSERT INTO CONTAS (mesa_id, status, valor) VALUES
+	(new.mesa_id, 'Pendente', 0);
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -282,12 +315,23 @@ CREATE TABLE `pedidos` (
 
 CREATE TABLE `pedidos_cardapios` (
   `id` int(11) NOT NULL,
-  `pedido_id` int(11) NOT NULL,
   `cardapio_id` int(11) NOT NULL,
-  `obs` varchar(200) DEFAULT NULL,
+  `pedido_id` int(11) NOT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `pedidos_cardapios`
+--
+
+INSERT INTO `pedidos_cardapios` (`id`, `cardapio_id`, `pedido_id`, `created`, `modified`) VALUES
+(3, 2, 6, '2017-07-18 04:56:19', '2017-07-18 04:56:19'),
+(4, 4, 7, '2017-07-18 04:56:26', '2017-07-18 04:56:26'),
+(5, 1, 8, '2017-07-19 01:54:38', '2017-07-19 01:54:38'),
+(6, 3, 8, '2017-07-19 01:54:38', '2017-07-19 01:54:38'),
+(7, 1, 9, '2017-07-19 02:01:00', '2017-07-19 02:01:00'),
+(8, 4, 10, '2017-07-19 02:04:45', '2017-07-19 02:04:45');
 
 -- --------------------------------------------------------
 
@@ -326,7 +370,8 @@ CREATE TABLE `reservas` (
 INSERT INTO `reservas` (`id`, `cliente_id`, `lugares`, `datahora`, `status`, `created`, `modified`) VALUES
 (1, 3, 10, '2022-01-01 00:00:00', 'Ativa', '2017-07-14 22:44:31', '2017-07-14 22:44:31'),
 (2, 1, 10, '2022-01-01 00:00:00', 'Ativo', '2017-07-16 03:30:51', '2017-07-16 03:30:51'),
-(3, 1, 5, '2022-01-01 00:00:00', 'Ativo', '2017-07-16 04:10:51', '2017-07-16 04:10:51');
+(3, 1, 5, '2022-01-01 00:00:00', 'Ativo', '2017-07-16 04:10:51', '2017-07-16 04:10:51'),
+(4, 1, 10, '2022-01-01 00:00:00', '', '2017-07-18 18:28:40', '2017-07-18 18:28:40');
 
 --
 -- Indexes for dumped tables
@@ -435,7 +480,7 @@ ALTER TABLE `agregacoes`
 -- AUTO_INCREMENT for table `cardapios`
 --
 ALTER TABLE `cardapios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `cardapios_pedidos`
 --
@@ -450,12 +495,12 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT for table `contas`
 --
 ALTER TABLE `contas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `enderecos`
 --
 ALTER TABLE `enderecos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `enderecos_clientes`
 --
@@ -475,17 +520,17 @@ ALTER TABLE `mesas`
 -- AUTO_INCREMENT for table `mesas_reservas`
 --
 ALTER TABLE `mesas_reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `pedidos_cardapios`
 --
 ALTER TABLE `pedidos_cardapios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `quotas_contas`
 --
@@ -495,7 +540,7 @@ ALTER TABLE `quotas_contas`
 -- AUTO_INCREMENT for table `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

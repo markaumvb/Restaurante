@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Datasource\ConnectionManager;
 
 /**
  * Pedidos Controller
@@ -115,4 +116,23 @@ class PedidosController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function cozinha ()
+    {
+        $conn = ConnectionManager::get('default');
+        $stmt = $conn->execute('select * from pedidos_cardapios');
+     //   $results = $stmt ->fetchAll();
+
+
+      //  $this->set(compact('$stmt'));
+       // $this->set('_serialize', ['$stmt']);
+       // $this->set('stmt', $stmt);
+
+   //     $pedidos = $this->paginate($this->Pedidos);
+
+        //$this->set(compact('pedidos'));
+         $rows = $stmt->fetchAll('assoc');
+         $this->set('resultado', $rows);
+    }
+
 }

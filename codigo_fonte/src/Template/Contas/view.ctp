@@ -1,6 +1,6 @@
 <nav class="col-lg-2 col-md-3">
     <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href=""><?= __('Actions') ?></a></li>
+        <li class="active"><a href=""><?= __('Menu') ?></a></li>
         <li><?= $this->Html->link(__('Edit {0}', ['Conta']), ['action' => 'edit', $conta->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete {0}', ['Conta']), ['action' => 'delete', $conta->id], ['confirm' => __('Are you sure you want to delete # {0}?', $conta->id)]) ?> </li>
         <li><?= $this->Html->link(__('List {0}', ['Contas']), ['action' => 'index']) ?> </li>

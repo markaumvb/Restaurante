@@ -87,4 +87,6 @@ class PedidosTable extends Table
 
         return $rules;
     }
+
+
 }

@@ -14,7 +14,6 @@
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('mesa_id') ?></th>
                 <th><?= $this->Paginator->sort('reserva_id') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
@@ -23,7 +22,6 @@
         <tbody>
             <?php foreach ($mesasReservas as $mesasReserva): ?>
             <tr>
-                <td><?= $this->Number->format($mesasReserva->id) ?></td>
                 <td><?= $mesasReserva->has('mesa') ? $this->Html->link($mesasReserva->mesa->id, ['controller' => 'Mesas', 'action' => 'view', $mesasReserva->mesa->id]) : '' ?></td>
                 <td><?= $mesasReserva->has('reserva') ? $this->Html->link($mesasReserva->reserva->id, ['controller' => 'Reservas', 'action' => 'view', $mesasReserva->reserva->id]) : '' ?></td>
                 <td class="actions" style="white-space:nowrap">

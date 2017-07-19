@@ -1,8 +1,8 @@
 <nav class="col-lg-2 col-md-3">
     <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href=""><?= __('Actions') ?></a></li>
-        <li><?= $this->Html->link(__('Edit {0}', ['Funcionario']), ['action' => 'edit', $funcionario->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete {0}', ['Funcionario']), ['action' => 'delete', $funcionario->id], ['confirm' => __('Are you sure you want to delete # {0}?', $funcionario->id)]) ?> </li>
+        <li><?= $this->Html->link(__('Editar {0}', ['Funcionario']), ['action' => 'edit', $funcionario->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Excluir {0}', ['Funcionario']), ['action' => 'delete', $funcionario->id], ['confirm' => __('Tem certeza que deseja exlcuir # {0}?', $funcionario->id)]) ?> </li>
         <li><?= $this->Html->link(__('List {0}', ['Funcionarios']), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New {0}', ['Funcionario']), ['action' => 'add']) ?> </li>
     </ul>
@@ -39,7 +39,7 @@
             <td><?= h($funcionario->email) ?></td>
         </tr>
         <tr>
-            <th>Password</th>
+            <th>Senha</th>
             <td><?= h($funcionario->password) ?></td>
         </tr>
         <tr>
