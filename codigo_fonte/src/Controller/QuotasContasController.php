@@ -51,17 +51,17 @@ class QuotasContasController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($id_conta = null)
     {
         $quotasConta = $this->QuotasContas->newEntity();
         if ($this->request->is('post')) {
             $quotasConta = $this->QuotasContas->patchEntity($quotasConta, $this->request->getData());
             if ($this->QuotasContas->save($quotasConta)) {
-                $this->Flash->success(__('The quotas conta has been saved.'));
+                $this->Flash->success(__('Pagamento de quota feito com sucesso!!!'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The quotas conta could not be saved. Please, try again.'));
+            $this->Flash->error(__('Erro ao tentar salvar'));
         }
         $contas = $this->QuotasContas->Contas->find('list', ['limit' => 200]);
         $this->set(compact('quotasConta', 'contas'));

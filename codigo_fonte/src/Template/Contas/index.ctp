@@ -2,9 +2,7 @@
 <nav class="col-md-2" id="actions-sidebar">
     <ul class="nav nav-pills nav-stacked">
         <li class="active"><a><?= __('Menu') ?></a></li>
-        <li><?= $this->Html->link(__('Nova Conta'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Listar {0}', ['Quotas Contas']), ['controller' => 'QuotasContas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Nova Quota {0}', ['Quotas Conta']), ['controller' => 'QuotasContas', 'action' => 'add']) ?></li>
+    
     </ul>
 </nav>
 <div class="contas index col-md-10 columns content">
@@ -26,8 +24,9 @@
                 <td><?= h($conta->status) ?></td>
                 <td class="actions" style="white-space:nowrap">
                     <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $conta->id], ['class'=>'btn btn-default btn-xs']) ?>
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $conta->id], ['class'=>'btn btn-primary btn-xs']) ?>
+                    <?= $this->Html->link(__('Receber Conta'), ['controller' => 'QuotasContas', 'action' => 'add', $conta->id], ['class'=>'btn btn-primary btn-xs']) ?>
                     <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $conta->id], ['confirm' => __('Tem certeza que deseja excluir a conta # {0}?', $conta->id), 'class'=>'btn btn-danger btn-xs']) ?>
+
                 </td>
             </tr>
             <?php endforeach; ?>
